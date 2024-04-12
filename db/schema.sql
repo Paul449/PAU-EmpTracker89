@@ -1,14 +1,14 @@
-DROP DATABASE IF EXISTS Employees;
+DROP DATABASE IF EXISTS Employees_db;
 
-CREATE DATABASE Employees;
+CREATE DATABASE Employees_db;
 
-/c:Employees.db;
+/c:Employees_db;
 
 CREATE TABLE department(
     id: SERIAL PRIMARY KEY,
     name: VARCHAR(30) UNIQUE NOT NULL,
 );
-CREATE TABLE role(
+CREATE TABLE roles(
     id: SERIAL PRIMARY KEY,
     title: VARCHAR(30) UNIQUE NOT NULL,
     salary: DECIMAL NOT NULL,
