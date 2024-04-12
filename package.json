@@ -1,0 +1,23 @@
+{
+  "name": "pau-emptracker89",
+  "version": "1.0.0",
+  "description": "employee tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paul449/PAU-EmpTracker89.git"
+  },
+  "author": "Paul Bilbatua",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Paul449/PAU-EmpTracker89/issues"
+  },
+  "homepage": "https://github.com/Paul449/PAU-EmpTracker89#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "pg": "^8.11.5"
+  }
+}
