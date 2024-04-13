@@ -3,13 +3,23 @@ class department{
         this.id = id;
         this.name = name;
     }
+    addDepartment(){
+        return`
+        INSERT INTO department(id,name)
+        VALUES(${id},${name})`;
+    }
 }
-class roles{
-    constructor(id,title,salary,department){
+class role{
+    constructor(id,title,salary,departmentID){
         this.id = id;
         this.title = title;
         this.salary = salary;
-        this.department = department;
+        this.departmentID = departmentID;
+    }
+    addRole(){
+        return`
+        INSERT INTO role(id,title,salary,departmentID)
+        VALUES(${id},${title},${salary},${departmentID})`;
     }
 }
 class employee{
@@ -19,5 +29,14 @@ class employee{
         this.lastName = lastName;
         this.roleID = roleID;
         this.managerID = managerID;
+    }
+    addEmployee(){
+        return`
+        INSERT INTO employee(id,firstName,lastName,roleID,managerID)
+        VALUES(${id},${firstName},${lastName},${roleID},${managerID})
+        `;
+    }
+    updateRoleID(){
+        return``;
     }
 }
