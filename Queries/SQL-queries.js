@@ -9,6 +9,7 @@ class department{
         VALUES(${id},${name})`;
     }
 }
+
 class role{
     constructor(id,title,salary,departmentID){
         this.id = id;
@@ -37,6 +38,10 @@ class employee{
         `;
     }
     updateRoleID(){
-        return``;
+        return`
+        UPDATE employee
+        SET name = ${firstName}
+        WHERE id = ${id}
+        `;
     }
 }
