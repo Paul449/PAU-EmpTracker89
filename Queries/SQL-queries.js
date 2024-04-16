@@ -1,3 +1,4 @@
+const POOL = require('pg');
 class department{
     constructor(id,name){
         this.id = id;
@@ -45,3 +46,6 @@ class employee{
         `;
     }
 }
+module.exports = department;
+module.exports = role;
+module.exports = employee;

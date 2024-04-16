@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const pool = require('pg');
+const SQLQueries = require('./Queries/SQL-queries');
 const questions = [{
     type:'list',
     name:'tables',
@@ -146,20 +147,17 @@ const updateEmployee = [
         message:'Which role would you like to assign for the selected employee?'
     },
 ];
-function promptQuestions(){
-   inquirer.prompt(questions).then(answers =>{
-for(let i = 0; i < answers.choices; i++){
-if(selection === "Add department"){
-    inquirer.prompt(addDepartment).then(answer=>{console.log(answer)});
-} else if(selection === "Add a role"){
-    inquirer.prompt(addRole).then(answer=>{console.log(answer)});
-} else if(selection === "add an employee"){
-    inquirer.prompt(addEmployee).then(answer=>{console.log(answer)});
-} else if(selection === "update an employee role"){
-    inquirer.prompt(updateEmployee).then(answer=>{console.log(answer)});
-} 
-}
-   })
+async function promptQuestions(){
+ const answers = await inquirer.prompt(questions);
+ if(answers === "add department"){
+    inquirer.prompt(addDepartment).then(answer)
+ } else if(answers === "add a role"){
+    inquirer.prompt(addRole).then(answer) 
+ } else if(answers === "add an employee"){
+    inquirer.prompt(addEmployee).then(answer)
+ } else if(answers === "update an employee role"){
+    inquirer.prompt(updateEmployee).then(answer)
+ }
 }
 promptQuestions();
 
