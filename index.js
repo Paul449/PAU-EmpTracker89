@@ -1,19 +1,17 @@
+require('dotenv');
 const inquirer = require('inquirer');
 const SQLQueries = require('./Queries/SQL-queries');
 const fs = require('fs');
-const {Pool, Client} = require('pg');
+const {Client} = require('pg');
 const PATH = require('path');  
-require('dotenv').config({
-    override:true,
-    path: path.join(__dirname,'../development.env')
+const client = new Client({
+    host:"localhost",
+    user: process.env.DB_USER,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: 5432
 });
-const POOL = new Pool({
-    User: process.env.USER,
-    host: process.env.HOST,
-    database: process.env.DATABASE,
-    password: process.env.PASSWORD,
-    port: process.env.PORT
-});
+
 const questions = [{
     type:'list',
     name:'tables',
@@ -21,7 +19,7 @@ const questions = [{
     message:'What would you like to do?'
 },
 ];
-// conditional statements for displaying questions on the console
+// additional questions
 const addDepartment = [
     {
         type:'input',
@@ -101,18 +99,30 @@ function updateEmp(){
 };
 
 async function promptQuestions(){
+ await client.connect();
  const answers = await inquirer.prompt(questions);
+ console.log('data',answers);
  if(answers.tables === "View all Departments"){
-    db.query(`SELECT * FROM  department`,(output)=>{
-        console.table(output);
+    
+    client.query('SELECT * FROM  department',(error,output)=>{
+        if(error){
+            console.error('error occured:',error)
+        }
+        console.table(output.rows);
     });
  } else if(answers.tables === "View all roles"){
-    db.query(`SELECT * FROM roles`,(output)=>{
-        console.table(output);
+    client.query('SELECT * FROM roles',(error,output)=>{
+            if(error){
+            console.error('error occured:',error)
+        }
+        console.log(output.rows);
     });
  } else if(answers.tables === "view all employees"){
-    db.query(`SELECT * FROM employee`,(output)=>{
-        console.table(output);
+    client.query('SELECT * FROM employee',(error,output)=>{
+        if(error){
+            console.error('error occured:',error)
+        }
+        console.log(output.rows);
     });
  }
  else if(answers.tables === "Add department"){
