@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Paul449/PAU-EmpTracker89#readme",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "inquirer": "^8.2.4",
     "pg": "^8.11.5"
   }

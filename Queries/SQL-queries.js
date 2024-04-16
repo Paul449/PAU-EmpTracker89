@@ -1,4 +1,4 @@
-const POOL = require('pg');
+
 class department{
     constructor(id,name){
         this.id = id;
@@ -7,45 +7,50 @@ class department{
     addDepartment(){
         return`
         INSERT INTO department(id,name)
-        VALUES(${id},${name})`;
+        VALUES
+            ('${id}','${name}');
+        `;
     }
 }
 
-class role{
-    constructor(id,title,salary,departmentID){
+class roles{
+    constructor(id,title,salary,department_id){
         this.id = id;
         this.title = title;
         this.salary = salary;
-        this.departmentID = departmentID;
+        this.department_id = department_id;
     }
     addRole(){
         return`
-        INSERT INTO role(id,title,salary,departmentID)
-        VALUES(${id},${title},${salary},${departmentID})`;
+        INSERT INTO roles(id,title,salary,department_id)
+        VALUES
+            ('${id}','${title}','${salary}','${department_id}');
+        `;
     }
 }
 class employee{
-    constructor(id,firstName,lastName,roleID,managerID){
+    constructor(id,first_name,last_name,role_id,manager_id){
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.roleID = roleID;
-        this.managerID = managerID;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.role_id = role_id;
+        this.manager_id = manager_id;
     }
     addEmployee(){
         return`
-        INSERT INTO employee(id,firstName,lastName,roleID,managerID)
-        VALUES(${id},${firstName},${lastName},${roleID},${managerID})
+        INSERT INTO employee(id,first_name,last_name,role_id,manager_id)
+        VALUES
+            ('${id}','${first_name}','${last_name}','${role_id}','${manager_id}');
         `;
     }
     updateRoleID(){
         return`
         UPDATE employee
-        SET name = ${firstName}
+        SET name = ${first_name}
         WHERE id = ${id}
         `;
     }
 }
 module.exports = department;
-module.exports = role;
+module.exports = roles;
 module.exports = employee;
