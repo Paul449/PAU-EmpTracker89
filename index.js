@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
-const pool = require('pg');
 const SQLQueries = require('./Queries/SQL-queries');
+const fs = require('fs');
 const questions = [{
     type:'list',
     name:'tables',
@@ -163,14 +163,14 @@ function updateEmp(){
 
 async function promptQuestions(){
  const answers = await inquirer.prompt(questions);
- if(answers.choices === "add department"){
-    return department();
- } else if(answers.choices === "add a role"){
-    return role();
- } else if(answers.choices === "add an employee"){
-    return employee();
- } else if(answers.choices === "update an employee role"){
-    return updateEmp();
+ if(answers.tables === "Add department"){
+    department();
+ } else if(answers.tables === "add a role"){
+     role();
+ } else if(answers.tables === "add an employee"){
+     employee();
+ } else if(answers.tables === "update an employee role"){
+     updateEmp();
  }
 }
 promptQuestions();
