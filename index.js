@@ -127,12 +127,13 @@ async function promptQuestions(){
  }
  else if(answers.tables === "Add department"){
     department();
+    
  } else if(answers.tables === "add a role"){
      role();
  } else if(answers.tables === "add an employee"){
      employee();
  } else if(answers.tables === "update an employee role"){
-     updateEmp();
+    updateEmp();    
  }
 }
 promptQuestions();

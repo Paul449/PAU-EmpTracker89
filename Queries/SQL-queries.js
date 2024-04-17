@@ -4,7 +4,7 @@ class department{
         this.id = id;
         this.name = name;
     }
-    addDepartment(){
+    addDepartment(id,name){
         return`
         INSERT INTO department(id,name)
         VALUES
@@ -20,7 +20,7 @@ class roles{
         this.salary = salary;
         this.department_id = department_id;
     }
-    addRole(){
+    addRole(id,title,salary,department_id){
         return`
         INSERT INTO roles(id,title,salary,department_id)
         VALUES
@@ -36,17 +36,17 @@ class employee{
         this.role_id = role_id;
         this.manager_id = manager_id;
     }
-    addEmployee(){
+    addEmployee(id,first_name,last_name,role_id,manager_id){
         return`
         INSERT INTO employee(id,first_name,last_name,role_id,manager_id)
         VALUES
             ('${id}','${first_name}','${last_name}','${role_id}','${manager_id}');
         `;
     }
-    updateRoleID(){
+    updateRoleID(id,role_id){
         return`
         UPDATE employee
-        SET name = ${first_name}
+        SET name = ${role_id}
         WHERE id = ${id}
         `;
     }
