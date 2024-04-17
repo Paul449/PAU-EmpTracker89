@@ -38,7 +38,7 @@ N/A
 
 # Screentify video
 
-video link [emptracker_Paul.webm](https://github.com/Paul449/PAU-EmpTracker89/assets/81491408/dfbf166d-9486-48aa-889d-e46e38704845)
+video link (https://github.com/Paul449/PAU-EmpTracker89/assets/81491408/dfbf166d-9486-48aa-889d-e46e38704845)
 
 
 # Github Repo
