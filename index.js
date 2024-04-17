@@ -115,14 +115,14 @@ async function promptQuestions(){
             if(error){
             console.error('error occured:',error)
         }
-        console.log(output.rows);
+        console.table(output.rows);
     });
  } else if(answers.tables === "view all employees"){
     client.query('SELECT * FROM employee',(error,output)=>{
         if(error){
             console.error('error occured:',error)
         }
-        console.log(output.rows);
+        console.table(output.rows);
     });
  }
  else if(answers.tables === "Add department"){
