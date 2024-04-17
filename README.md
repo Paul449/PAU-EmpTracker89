@@ -34,7 +34,7 @@ N/A
 
 # Deployment
 
-deployment link:()
+N/A
 
 # Screentify video
 
