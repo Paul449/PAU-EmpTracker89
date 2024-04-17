@@ -1,11 +1,11 @@
-require('dotenv');
+const dotenv = require('dotenv');
+dotenv.config();
 const inquirer = require('inquirer');
 const SQLQueries = require('./Queries/SQL-queries');
 const fs = require('fs');
 const {Client} = require('pg');
 const PATH = require('path');  
 const client = new Client({
-    host:"localhost",
     user: process.env.DB_USER,
     database: process.env.DB_NAME,
     password: process.env.DB_PASSWORD,
